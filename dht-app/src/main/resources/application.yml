@@ -1,0 +1,28 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: dht-app
+  mvc:
+    static-path-pattern: /image/**
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+  web:
+    resources:
+      static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
+config:
+  jdbc:
+    driver: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/dht?serverTimezone=Hongkong&useUnicode=true&characterEncoding=utf8&useSSL=false&useAffectedRows=true
+    username: root
+    password: test123456
+    druid:
+      # 初始化时建立物理连接的个数。初始化发生在显示调用init方法，或者第一次getConnection时
+      initialSize: 20
+      # 最大连接池数量
+      maxActive: 200
+      # 最小连接池数量
+      minIdle: 100
